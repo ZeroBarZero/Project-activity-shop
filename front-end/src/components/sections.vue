@@ -1,10 +1,25 @@
 <template>
 <div>
   <tab></tab>
-  <section id="screen2">
-  <item></item>
+  <section id="screen2" class="section section-padding-medium">
+  <div class="level sect">
+  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
+  <item class="level-right"></item>
+  </div>
   </section>
-  <section id="screen3"></section>
+  <section id="screen3" class="section section-padding-medium">
+  <div class="level sect">
+  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
+  <item class="level-right"></item>
+  </div>
+  </section>
+  <section id="screen4" class="section section-padding-medium">
+  <div class="level sect">
+  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
+  <item class="level-right"></item>
+  </div>
+  </section>
+  <section id="screen5" class="section section-padding-medium"></section>
 </div>
 </template>
 
@@ -63,12 +78,14 @@ nav li a {
 }
 
 section {
-	height: 100vh;
+	min-height: 100vh;
+	margin-bottom: 0;
 }
 
 /* Screens Settings */
 #screen1 {
 	background: #43b29d;
+	margin: 0px;
 }
 
 #screen1 p {
@@ -76,13 +93,45 @@ section {
 }
 
 #screen2 {
-	background: #efc94d;
+	background: gray;
+}
+
+.sect {
+	height: 100vh;
+	max-width: 1440px;
+	margin: auto;
 }
 
 #screen3 {
-	background: #e1793d;
+	background: darkgrey;
 }
 
+#screen4 {
+	background: gray;
+}
+
+#screen5 {
+	background: lightgray;
+}
+
+.item-img{
+	width:48%;
+	min-height: 50%;
+	border: orange solid 15px;
+}
+
+@media (max-width: 768px) {
+  .item-img{
+	width:100%;
+	min-height: 30%;
+  }
+
+  .sect{
+	  padding-top:50px;
+  }
+
+
+}
 @media only screen and (max-width: 520px) {
 
 	nav li {

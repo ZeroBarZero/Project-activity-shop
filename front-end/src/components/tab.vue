@@ -4,9 +4,9 @@
       <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#screen2">Running</a></li>
-          <li><a href="#">Yoga</a></li>
-          <li><a href="#">Relax</a></li>
-          <li><a href="#screen3">do-it!</a></li>
+          <li><a href="#screen3">Yoga</a></li>
+          <li><a href="#screen4">Relax</a></li>
+          <li><a href="#screen5">do-it!</a></li>
       </ul>
     </nav>
   </section>
@@ -15,9 +15,9 @@
 <script>
 /* eslint-disable */
 
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
