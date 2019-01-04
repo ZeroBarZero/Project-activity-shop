@@ -3,37 +3,61 @@
   <tab></tab>
   <section id="screen2" class="section section-padding-medium">
   <div class="level sect">
-  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
-  <item class="level-right"></item>
+  <img class="item-img level-left" src="..\assets\img\undraw_finish_line.svg"/>
+  <item class="item-box level-right"></item>
   </div>
   </section>
   <section id="screen3" class="section section-padding-medium">
   <div class="level sect">
-  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
-  <item class="level-right"></item>
+  <img class="item-img level-left" src="..\assets\img\undraw_mindfulness.svg"/>
+  <item class="item-box level-right"></item>
   </div>
   </section>
   <section id="screen4" class="section section-padding-medium">
   <div class="level sect">
-  <div class="item-img level-left" src="http://placehold.it/640x489?text=sample"></div>
-  <item class="level-right"></item>
+  <img class="item-img level-left" src="..\assets\img\undraw_relax.svg" />
+  <item class="item-box level-right"></item>
   </div>
   </section>
-  <section id="screen5" class="section section-padding-medium"></section>
+  <section id="screen5" class="section section-padding-medium"><!--<do-it></do-it>--></section>
 </div>
 </template>
 
 <script>
 /* eslint-disable */
 import Tab from './tab'
-import itemBox from './itembox'
+import itemBox from './itemBox'
+//import Cart from './cart'
+
 export default {
   name: 'sections',
   components: {
 	'tab': Tab,
-	'item' : itemBox
+	'item' : itemBox,
+	//'do-it' : Cart
   }
-}
+};
+
+/*
+var EventBus = new Vue();
+
+var ReceiverApp = new Vue({
+  el: '#screen5',
+    data() {
+    	return {
+            checkboxGroup: []
+        }
+    },
+    created() {
+    	EventBus.$on('senderarray', this.checkboxGroup);
+    },
+    methods: {
+    	senderarray(checkboxGroup) {
+            this.checkboxGroup = checkboxGroup;
+        }
+    }
+});
+*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -49,6 +73,9 @@ a {text-decoration: none;}
 	top: 0;
 	height: 70px;
 	z-index: 1;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -117,22 +144,40 @@ section {
 .item-img{
 	width:48%;
 	min-height: 50%;
-	border: orange solid 15px;
+}
+.item-box{
+	padding:3rem;
 }
 
 @media (max-width: 768px) {
-  .item-img{
+  .level .item-img{
 	width:100%;
 	min-height: 30%;
   }
 
-  .sect{
-	  padding-top:50px;
+  .item-box{
+	padding:0;
   }
 
-
+  .section {
+    padding: 0.8rem 1.5rem;
 }
+  
+}
+
 @media only screen and (max-width: 520px) {
+	.level .item-img{
+	display: none;
+	/*width:100%;
+	min-height: 30%;*/
+  }
+  .item-box{
+	padding:0;
+  }
+
+  .section {
+    padding: 0.8rem 1.5rem;
+}
 
 	nav li {
 		padding: 24px 4px;

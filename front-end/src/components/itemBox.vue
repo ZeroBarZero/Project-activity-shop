@@ -1,7 +1,7 @@
 <template>
  <div class="tile level-right">
     <div class="tile">
-      <div class="tile is-parent is-vertical">
+      <div id="senderbox" class="tile is-parent is-vertical">
         <article class="tile is-child box">
           <div class="media">
           <figure class="media-left">
@@ -75,13 +75,29 @@
 
 <script>
 /* eslint-disable */
-    export default {
-        data() {
+export default {
+data() {
             return {
                 checkboxGroup: []
             }
+    }
+}
+/*
+var SenderApp = new Vue({
+    el: '#senderbox',
+     data() {
+        checkboxGroup: []
+    },
+    created() {
+      EventBus.$on('senderarray' , this.checkboxGroup);
+    },
+    methods: {
+    	sender() {
+            EventBus.$emit('senderarray', this.checkboxGroup);
         }
     }
+});
+*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -94,4 +110,10 @@
   max-width:900px;
 }
 
+@media screen and (max-width: 768px)
+{
+  .media-content {
+      font-size: smaller;
+  }
+}
 </style>
