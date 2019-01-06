@@ -19,7 +19,7 @@
   <item class="item-box level-right"></item>
   </div>
   </section>
-  <section id="screen5" class="section section-padding-medium"><!--<do-it></do-it>--></section>
+  <section id="screen5" class="section section-padding-medium"></section>
 </div>
 </template>
 
@@ -27,37 +27,14 @@
 /* eslint-disable */
 import Tab from './tab'
 import itemBox from './itemBox'
-//import Cart from './cart'
 
 export default {
   name: 'sections',
   components: {
 	'tab': Tab,
 	'item' : itemBox,
-	//'do-it' : Cart
   }
 };
-
-/*
-var EventBus = new Vue();
-
-var ReceiverApp = new Vue({
-  el: '#screen5',
-    data() {
-    	return {
-            checkboxGroup: []
-        }
-    },
-    created() {
-    	EventBus.$on('senderarray', this.checkboxGroup);
-    },
-    methods: {
-    	senderarray(checkboxGroup) {
-            this.checkboxGroup = checkboxGroup;
-        }
-    }
-});
-*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -82,22 +82,6 @@ data() {
             }
     }
 }
-/*
-var SenderApp = new Vue({
-    el: '#senderbox',
-     data() {
-        checkboxGroup: []
-    },
-    created() {
-      EventBus.$on('senderarray' , this.checkboxGroup);
-    },
-    methods: {
-    	sender() {
-            EventBus.$emit('senderarray', this.checkboxGroup);
-        }
-    }
-});
-*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
