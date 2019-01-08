@@ -29,7 +29,13 @@ import Tab from './tab'
 import itemBox from './itemBox'
 
 export default {
-  name: 'sections',
+	name: 'sections',
+	methods:{
+		addArray() {
+			this.$store.state
+		}
+
+	},
   components: {
 	'tab': Tab,
 	'item' : itemBox,

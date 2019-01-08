@@ -1,7 +1,7 @@
 <template>
- <div class="tile level-right">
-    <div class="tile">
-      <div id="senderbox" class="tile is-parent is-vertical">
+ <div class="is-half level-right">
+    <div>
+      <div v-for="item in items" :key="item.id" class="tile is-parent is-vertical">
         <article class="tile is-child box">
           <div class="media">
           <figure class="media-left">
@@ -12,59 +12,20 @@
           <div class="media-content">
           <div class="content">
           <p>
-          <strong>Seong woo Kim</strong>
+          <strong>{{ item.title }}</strong>
           <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <br>
+          price: {{ item.price }} won
           </p>
           </div>
           </div>
           <div class="media-right">
-          <b-checkbox v-model="checkboxGroup" native-value="run1">
-          </b-checkbox>
-          </div>
-          </div>
-        </article>
-        <article class="tile is-child box">
-          <div class="media">
-          <figure class="media-left">
-          <p class="image is-64x64">
-           <img src="https://bulma.io/images/placeholders/128x128.png">
-          </p>
-          </figure>
-          <div class="media-content">
-          <div class="content">
-          <p>
-          <strong>Seong woo Kim</strong>
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
-          </p>
-          </div>
-          </div>
-          <div class="media-right">
-          <b-checkbox v-model="checkboxGroup" native-value="run2">
-          </b-checkbox>
-          </div>
-          </div>
-        </article>
-        <article class="tile is-child box">
-          <div class="media">
-          <figure class="media-left">
-          <p class="image is-64x64">
-           <img src="https://bulma.io/images/placeholders/128x128.png">
-          </p>
-          </figure>
-          <div class="media-content">
-          <div class="content">
-          <p>
-          <strong>Seong woo Kim</strong>
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
-          </p>
-          </div>
-          </div>
-          <div class="media-right">
-          <b-checkbox v-model="checkboxGroup" native-value="run3">
-          </b-checkbox>
+          <button class="button"  @click="addToCart(item)" name="run1">
+            <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+            </span>
+          </button>
           </div>
           </div>
         </article>
@@ -76,11 +37,32 @@
 <script>
 /* eslint-disable */
 export default {
-data() {
-            return {
-                checkboxGroup: []
-            }
+  data() {
+        return {
+            items: [
+                {
+                    id: 1,
+                    title: 'Children of Bodom - Hatebreeder',
+                    price: 9.99
+                },
+                {
+                    id: 2,
+                    title: 'Emperor - Anthems to the Welkin at Dusk',
+                    price: 6.66
+                },
+                {
+                    id: 3,
+                    title: 'Epica - The Quantum Enigma',
+                    price: 15.99
+                },
+            ]
+        }},
+   methods: {
+    addToCart(item) {
+      console.log ( 'event dropped')// This Works 
+        this.$store.commit('addToCart', item.title);
     }
+}
 }
 </script>
 
