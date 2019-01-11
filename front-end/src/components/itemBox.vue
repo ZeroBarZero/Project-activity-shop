@@ -1,7 +1,7 @@
 <template>
  <div class="is-half level-right">
     <div>
-      <div v-for="item in items" :key="item.id" class="tile is-parent is-vertical">
+      <div v-for="product in products" :key="product.id" class="tile is-parent is-vertical">
         <article class="tile is-child box">
           <div class="media">
           <figure class="media-left">
@@ -12,16 +12,16 @@
           <div class="media-content">
           <div class="content">
           <p>
-          <strong>{{ item.title }}</strong>
+          <strong>{{ product.name }}</strong>
           <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          {{product.description}}
           <br>
-          price: {{ item.price }} won
+          price:{{product.price}}won
           </p>
           </div>
           </div>
           <div class="media-right">
-          <button class="button"  @click="addToCart(item)" name="run1">
+          <button class="button"  @click='addToCart(product)' >
             <span class="icon is-small">
             <i class="fas fa-plus"></i>
             </span>
@@ -36,33 +36,16 @@
 
 <script>
 /* eslint-disable */
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  data() {
-        return {
-            items: [
-                {
-                    id: 1,
-                    title: 'Children of Bodom - Hatebreeder',
-                    price: 9.99
-                },
-                {
-                    id: 2,
-                    title: 'Emperor - Anthems to the Welkin at Dusk',
-                    price: 6.66
-                },
-                {
-                    id: 3,
-                    title: 'Epica - The Quantum Enigma',
-                    price: 15.99
-                },
-            ]
-        }},
-   methods: {
-    addToCart(item) {
-      console.log ( 'event dropped')// This Works 
-        this.$store.commit('addToCart', item.title);
-    }
-}
+  name: 'app',
+  computed: mapGetters({
+    products: 'allProducts',
+    length: 'getNumberOfProducts'
+  }),
+  methods: mapActions([
+    'addToCart'
+  ])
 }
 </script>
 

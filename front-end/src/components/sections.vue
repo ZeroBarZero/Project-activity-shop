@@ -30,12 +30,6 @@ import itemBox from './itemBox'
 
 export default {
 	name: 'sections',
-	methods:{
-		addArray() {
-			this.$store.state
-		}
-
-	},
   components: {
 	'tab': Tab,
 	'item' : itemBox,

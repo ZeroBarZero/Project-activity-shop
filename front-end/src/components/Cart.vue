@@ -1,33 +1,52 @@
 <template>
-    <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="">
-            Cart ({{ $store.state.cartCount }})
-        </a>
-
-        <div v-if="$store.state.cart.length > 0" class="navbar-dropdown is-boxed is-right">
-            <a v-for="item in $store.state.cart"
-                :key="item.id"
-                class="navbar-item"
-                href=""
-            >
-                {{ item.title }} x{{ item.quantity }} - ${{ item.totalPrice }}
-            </a>
-
-            <a class="navbar-item" href="">
-                Total: ${{ totalPrice }}
-            </a>
-
-            <hr class="navbar-divider">
-
-            <a class="navbar-item" href="">
-                Checkout
-            </a>
-        </div>
-
-        <div v-else class="navbar-dropdown is-boxed is-right">
-            <a class="navbar-item" href="">
-                Cart is empty
-            </a>
-        </div>
-    </div>
+  <div class="cart">
+    <h1 class="title">Your Cart</h1>
+    <p v-show="!products.length">
+    <i>Your cart is empty!</i>
+    </p>
+<table class="table is-striped" v-show="products.length">
+<thead>
+<tr>
+<td>Name</td>
+<td>Price</td>
+<td>Quantity</td>
+</tr>
+</thead>
+<tbody>
+<tr v-for="p in products" v-bind:key="p.id">
+<td>{{ p.name }}</td>
+<td>${{ p.price }}</td>
+<td>{{ p.quantity }}</td>
+</tr>
+<tr>
+    <td><b>Total:</b></td>
+    <td></td>
+    <td><b>${{ total }}</b></td>
+</tr>
+        </tbody>
+</table>
+    <p><button v-show="products.length" class='button is-primary' @click='checkout'>Checkout</button></p>
+  </div>
 </template>
+
+<script>
+/* eslint-disable */
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      products: 'cartProducts'
+    }),
+    total () {
+      return this.products.reduce((total, p) => {
+        return total + p.price * p.quantity
+      }, 0)
+    }
+  },
+  methods: {
+  	checkout(){
+  		alert('Pay us $' + this.total)
+  	}
+  }
+}
+</script>
