@@ -2,7 +2,7 @@
  <div class="is-half level-right">
     <div>
       <div v-for="product in products" :key="product.id" class="tile is-parent is-vertical">
-        <article  v-if="product.category == 'a'" class="tile is-child box">
+        <article v-if="product.category == 'b'" class="tile is-child box">
           <div class="media">
           <figure class="media-left">
           <p class="image is-64x64">

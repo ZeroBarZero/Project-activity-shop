@@ -10,13 +10,13 @@
   <section id="screen3" class="section section-padding-medium">
   <div class="level sect">
   <img class="item-img level-left" src="./assets\img\undraw_mindfulness.svg"/>
-  <item class="item-box level-right"></item>
+  <item2 class="item-box level-right"></item2>
   </div>
   </section>
   <section id="screen4" class="section section-padding-medium">
   <div class="level sect">
   <img class="item-img level-left" src="./assets\img\undraw_relax.svg" />
-  <item class="item-box level-right"></item>
+  <item3 class="item-box level-right"></item3>
   </div>
   </section>
   <section id="screen5" class="section section-padding-medium"><cart></cart></section>
@@ -27,12 +27,16 @@
 /* eslint-disable */
 import Tab from './components/tab'
 import itemBox from './components/itemBox'
+import itemBox2 from './components/itemBox2'
+import itemBox3 from './components/itemBox3'
 import Cart from './components/Cart'
 
 export default {
   components: {
 	'tab': Tab,
 	'item' : itemBox,
+	'item2' : itemBox2,
+	'item3' : itemBox3,
 	'cart' : Cart
   }
 };
@@ -93,7 +97,7 @@ section {
 
 /* Screens Settings */
 #screen1 {
-	background: #43b29d;
+	background: #C1C48E;
 	margin: 0px;
 }
 
@@ -102,7 +106,7 @@ section {
 }
 
 #screen2 {
-	background: gray;
+	background: #82617B;
 }
 
 .sect {
@@ -112,23 +116,22 @@ section {
 }
 
 #screen3 {
-	background: darkgrey;
+	background: #BCA1B1;
 }
-
 #screen4 {
-	background: gray;
+	background: #E2DDD9;
 }
 
 #screen5 {
-	background: lightgray;
+	background: #F7E6D1;
 }
 
 .item-img{
 	width:48%;
 	min-height: 50%;
 }
-.item-box{
-	padding:3rem;
+.item-box {
+	padding: 3rem;
 }
 
 @media (max-width: 768px) {
@@ -148,6 +151,38 @@ section {
 }
 
 @media only screen and (max-width: 520px) {
+	.level .item-img{
+	display: none;
+	/*width:100%;
+	min-height: 30%;*/
+  }
+  .item-box{
+	padding:0;
+  }
+
+  .section {
+    padding: 0.8rem 1.5rem;
+}
+
+	nav li {
+		padding: 24px 4px;
+	}
+
+	nav li a {
+		font-size: 14px;
+	}
+
+}
+@media only screen and (max-width: 320px) {
+	.media{
+		font-size: medium;
+	}
+	.table{
+		font-size: small;
+	}
+	.media-left {
+    display: none;
+}
 	.level .item-img{
 	display: none;
 	/*width:100%;

@@ -4,7 +4,7 @@
     <p v-show="!products.length">
     <i>Your cart is empty!</i>
     </p>
-<table class="table is-striped" v-show="products.length">
+<table class="table is-fullwidth is-striped" v-show="products.length">
 <thead>
 <tr>
 <td>Name</td>
@@ -23,10 +23,10 @@
     <td></td>
     <td><b>${{ total }}</b></td>
 </tr>
-        </tbody>
+</tbody>
 </table>
     <p><button v-show="products.length" class='button is-primary' @click='checkout'>Checkout</button></p>
-  </div>
+</div>
 </template>
 
 <script>
