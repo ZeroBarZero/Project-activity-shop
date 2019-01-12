@@ -1,7 +1,7 @@
 <template>
  <div class="is-half level-right">
     <div>
-      <div v-for="product in products" :key="product.id" class="tile is-parent is-vertical">
+      <div v-for="product in products" :key="product.id" class="is-parent is-vertical">
         <article  v-if="product.category == 'a'" class="tile is-child box">
           <div class="media">
           <figure class="media-left">
@@ -57,6 +57,7 @@ export default {
 }
 .box{
   max-width:600px;
+  margin-top:1em !important;
 }
 
 @media screen and (max-width: 768px)
