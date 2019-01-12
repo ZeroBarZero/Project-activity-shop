@@ -6,9 +6,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 import Vuex from 'vuex'
+import axios from 'axios'
+
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
 new Vue({
   el: '#app',
