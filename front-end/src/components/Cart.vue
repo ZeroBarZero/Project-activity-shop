@@ -45,8 +45,9 @@ export default {
   },
   methods: {
   	checkout(){
-  		alert('Pay us $' + this.total)
-  	}
+  		//alert('Pay us $' + this.total)
+      this.$http.get('/api/').then(r => {alert(r.data)});
+    }
   }
 }
 </script>
