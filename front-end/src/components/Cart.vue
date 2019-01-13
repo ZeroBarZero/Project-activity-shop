@@ -25,14 +25,24 @@
 </tr>
 </tbody>
 </table>
-    <p><button v-show="products.length" class='button is-primary' @click='checkout'>Checkout</button></p>
+<VuexplosiveModal :visible="showModal"></VuexplosiveModal>
+<p><button v-show="products.length" class='button is-primary' @click="toggleModal" >Checkout</button></p>
 </div>
 </template>
 
 <script>
 /* eslint-disable */
 import { mapGetters } from 'vuex'
+import VuexplosiveModal from "./VuexplosiveModal"
 export default {
+  components: {
+    VuexplosiveModal
+  },
+  data() {
+    return {
+      showModal: false
+    };
+  },
   computed: {
     ...mapGetters({
       products: 'cartProducts'
@@ -45,9 +55,15 @@ export default {
   },
   methods: {
   	checkout(){
-  		//alert('Pay us $' + this.total)
-      this.$http.get('/api/').then(r => {alert(r.data)});
+  		alert('Pay us $' + this.total);
+      //this.$http.get('/api/').then(r => {alert(r.data)});
+    },
+    toggleModal() {
+      this.showModal = !this.showModal;
     }
   }
 }
 </script>
+
+<style lang="scss">
+</style>
