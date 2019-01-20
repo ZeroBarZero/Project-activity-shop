@@ -20,8 +20,68 @@
             ></button>
           </div>
 
-          <div class="vuexplosive-modal-content" v-html="content"></div>
-
+          <div class="vuexplosive-modal-content">
+            <table class="table is-fullwidth is-striped" v-show="products.length">
+            <thead>
+            <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="p in products" v-bind:key="p.id">
+            <td>{{ p.name }}</td>
+            <td>${{ p.price }}</td>
+            <td>{{ p.quantity }}</td>
+            </tr>
+            <tr>
+                <td><b>Total:</b></td>
+                <td></td>
+                <td><b>${{ total }}</b></td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="name" required/>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Email" required/>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="tel" placeholder="mobile" required/>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <span class="select">
+                  <select>
+                    <option>결제 방법을 선택해 주세요.</option>
+                    <option>무통장입금: 신한 정지원 123-1456-123432</option>
+                  </select>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+            <p class="control">
+              <textarea class="textarea" placeholder="추가 메세지가 있다면 적어주세요 ."></textarea>
+            </p>
+            </div>
+          </div>
           <div class="vuexplosive-modal-footer" v-html="footer"></div>
         </div>
       </div>
@@ -35,6 +95,7 @@
 
 <script>
 /* eslint-disable */
+import { mapGetters } from 'vuex'
 export default {
   name: "VuexplosionModal",
   props: {
@@ -42,7 +103,7 @@ export default {
       default: false
     },
     title: {
-      default: "Boo! 🔥"
+      default: "GO FOR IT!🔥"
     },
     closeIcon: {
       default: `<span>❌</span>`
@@ -51,7 +112,7 @@ export default {
       default: `<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet a tenetur delectus reprehenderit, omnis doloremque at earum officia unde sequi accusantium corporis praesentium deserunt laboriosam dignissimos voluptatum culpa molestiae ullam. 👻</p>`
     },
     footer: {
-      default: `<button>I do nothing!</button>`
+      default: `<button @click="checkout">Hell Yeah!</button>`
     }
   },
   data: function() {
@@ -61,10 +122,23 @@ export default {
         "https://raw.githubusercontent.com/mburakerman/vuexplosive-modal/development/src/fire.gif"
     };
   },
-
+  computed: {
+    ...mapGetters({
+      products: 'cartProducts'
+    }),
+    total () {
+      return this.products.reduce((total, p) => {
+        return total + p.price * p.quantity
+      }, 0)
+    }
+  },
   methods: {
     modalToggle() {
       this.active = !this.active;
+    },
+  	checkout(){
+  		alert('Pay us $' + this.total);
+      //this.$http.get('/api/').then(r => {alert(r.data)});
     }
   },
   watch: {
