@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import sections from '@/components/sections'
+import admin from '@/components/admin'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
@@ -13,6 +14,11 @@ export default new Router({
       path: '/sections',
       name: 'sections',
       component: sections
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: admin
     }
   ]
 })
