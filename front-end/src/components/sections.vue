@@ -18,18 +18,22 @@
 <item class="item-box level-right" v-bind:_category="'c'"></item>
 </div>
 </section>
-<section id="screen5" class="section section-padding-medium"></section>
+<section id="screen5" class="section section-padding-medium">
+<cart></cart>
+</section>
 </div>
 </template>
 
 <script>
 /* eslint-disable */
 import itemBox from './itemBox'
+import Cart from './Cart'
 
 export default {
 	name: 'sections',
   components: {
 	'item' : itemBox,
+	'cart' : Cart
   }
 };
 </script>
@@ -84,35 +88,10 @@ section {
 }
 
 /* Screens Settings */
-#screen1 {
-	background: #43b29d;
-	margin: 0px;
-}
-
-#screen1 p {
-	padding-top: 200px;
-}
-
-#screen2 {
-	background: gray;
-}
-
 .sect {
 	height: 100vh;
 	max-width: 1440px;
 	margin: auto;
-}
-
-#screen3 {
-	background: darkgrey;
-}
-
-#screen4 {
-	background: gray;
-}
-
-#screen5 {
-	background: lightgray;
 }
 
 .item-img{

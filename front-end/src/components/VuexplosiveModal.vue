@@ -44,7 +44,7 @@
             </table>
             <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="name" required/>
+                <input v-model="username" class="input" type="text" placeholder="name" required/>
                 <span class="icon is-small is-left">
                   <i class="fas fa-user"></i>
                 </span>
@@ -52,7 +52,7 @@
             </div>
             <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email" required/>
+                <input v-model="email" class="input" type="email" placeholder="Email" required/>
                 <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -60,7 +60,7 @@
             </div>
             <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input class="input" type="tel" placeholder="mobile" required/>
+                <input v-model="mobile" class="input" type="tel" placeholder="mobile" required/>
                 <span class="icon is-small is-left">
                   <i class="fas fa-mobile-alt"></i>
                 </span>
@@ -69,20 +69,22 @@
             <div class="field">
               <p class="control">
                 <span class="select">
-                  <select>
-                    <option>결제 방법을 선택해 주세요.</option>
-                    <option>무통장입금: 신한 정지원 123-1456-123432</option>
+                  <select  v-model="pay">
+                    <option name='0'>결제 방법을 선택해 주세요.</option>
+                    <option name='1'>무통장입금: 신한 정지원 123-1456-123432</option>
                   </select>
                 </span>
               </p>
             </div>
             <div class="field">
             <p class="control">
-              <textarea class="textarea" placeholder="추가 메세지가 있다면 적어주세요 ."></textarea>
+              <textarea v-model="message" class="textarea" placeholder="추가 메세지가 있다면 적어주세요 ."></textarea>
             </p>
             </div>
           </div>
-          <div class="vuexplosive-modal-footer" v-html="footer"></div>
+          <div class="vuexplosive-modal-footer" >
+            <button @click="checkout">Hell Yeah!</button>
+          </div>
         </div>
       </div>
     </transition>
@@ -111,15 +113,18 @@ export default {
     content: {
       default: `<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet a tenetur delectus reprehenderit, omnis doloremque at earum officia unde sequi accusantium corporis praesentium deserunt laboriosam dignissimos voluptatum culpa molestiae ullam. 👻</p>`
     },
-    footer: {
-      default: `<button @click="checkout">Hell Yeah!</button>`
-    }
   },
   data: function() {
     return {
       active: false,
       explosionGifUrl:
-        "https://raw.githubusercontent.com/mburakerman/vuexplosive-modal/development/src/fire.gif"
+        "https://raw.githubusercontent.com/mburakerman/vuexplosive-modal/development/src/fire.gif",
+      username: '',
+      email: '',
+      mobile: '',
+      pay: '',
+      message: '',
+      
     };
   },
   computed: {
@@ -137,9 +142,16 @@ export default {
       this.active = !this.active;
     },
   	checkout(){
-  		alert('Pay us $' + this.total);
-      //this.$http.get('/api/').then(r => {alert(r.data)});
-    }
+      this.$http.post('/api/',
+                    JSON.stringify({
+                        username: this.username,
+                        email: this.email,
+                        mobile: this.mobile,
+                        products: this.products,
+                        total: this.total,
+                        pay: this.pay,
+                        message : this.message
+                }))}
   },
   watch: {
     visible(oldVal, newVal) {

@@ -2,20 +2,16 @@
   <div id="app">
   <tab></tab>
   <sections></sections>
-	<cart></cart>
   </div>
 </template>
 <script>
 /* eslint-disable */
 import Tab from './components/tab'
 import Sections from './components/sections'
-import Cart from './components/Cart'
-
 export default {
   components: {
 	'tab': Tab,
 	'sections': Sections,
-	'cart' : Cart
   }
 };
 </script>
