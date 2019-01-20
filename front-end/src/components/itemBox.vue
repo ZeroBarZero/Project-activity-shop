@@ -2,7 +2,7 @@
  <div class="is-half level-right">
     <div>
       <div v-for="product in products" :key="product.id" class="is-parent is-vertical">
-        <article  v-if="product.category == 'a'" class="tile is-child box">
+        <article  v-if="product.category == category" class="tile is-child box">
           <div class="media">
           <figure class="media-left">
           <p class="image is-64x64">
@@ -38,14 +38,20 @@
 /* eslint-disable */
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'app',
+  name: 'itemBox',
+  props: ['_category'],
+  data: function () {
+    return {
+      category: this._category
+    }
+  },
   computed: mapGetters({
     products: 'allProducts',
     length: 'getNumberOfProducts'
   }),
   methods: mapActions([
     'addToCart'
-  ])
+  ]),
 }
 </script>
 

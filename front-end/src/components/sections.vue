@@ -1,37 +1,34 @@
 <template>
 <div>
-  <tab></tab>
-  <section id="screen2" class="section section-padding-medium">
-  <div class="level sect">
-  <img class="item-img level-left" src="..\assets\img\undraw_finish_line.svg"/>
-  <item class="item-box level-right"></item>
-  </div>
-  </section>
-  <section id="screen3" class="section section-padding-medium">
-  <div class="level sect">
-  <img class="item-img level-left" src="..\assets\img\undraw_mindfulness.svg"/>
-  <item class="item-box level-right"></item>
-  </div>
-  </section>
-  <section id="screen4" class="section section-padding-medium">
-  <div class="level sect">
-  <img class="item-img level-left" src="..\assets\img\undraw_relax.svg" />
-  <item class="item-box level-right"></item>
-  </div>
-  </section>
-  <section id="screen5" class="section section-padding-medium"></section>
+<section id="screen2" class="section section-padding-medium">
+<div class="level sect">
+<img class="item-img level-left" src="..\assets\img\undraw_finish_line.svg"/>
+<item class="item-box level-right" v-bind:_category="'a'"></item>
+</div>
+</section>
+<section id="screen3" class="section section-padding-medium">
+<div class="level sect">
+<img class="item-img level-left" src="..\assets\img\undraw_mindfulness.svg"/>
+<item class="item-box level-right" v-bind:_category="'b'"></item>
+</div>
+</section>
+<section id="screen4" class="section section-padding-medium">
+<div class="level sect">
+<img class="item-img level-left" src="..\assets\img\undraw_relax.svg" />
+<item class="item-box level-right" v-bind:_category="'c'"></item>
+</div>
+</section>
+<section id="screen5" class="section section-padding-medium"></section>
 </div>
 </template>
 
 <script>
 /* eslint-disable */
-import Tab from './tab'
 import itemBox from './itemBox'
 
 export default {
 	name: 'sections',
   components: {
-	'tab': Tab,
 	'item' : itemBox,
   }
 };

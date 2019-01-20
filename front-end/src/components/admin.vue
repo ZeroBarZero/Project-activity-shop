@@ -1,33 +1,20 @@
 <template>
-  <div id="app">
-  <tab></tab>
-  <sections></sections>
-	<cart></cart>
-  </div>
+<div>
+hello
+</div>
 </template>
+
 <script>
 /* eslint-disable */
-import Tab from './components/tab'
-import Sections from './components/sections'
-import Cart from './components/Cart'
-
 export default {
-  components: {
-	'tab': Tab,
-	'sections': Sections,
-	'cart' : Cart
-  }
+	name: 'admin'
 };
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-* {margin: 0; padding: 0;}
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+* {margin: 0; padding: 0;}
 
 a {text-decoration: none;}
 
@@ -75,7 +62,7 @@ section {
 
 /* Screens Settings */
 #screen1 {
-	background: #C1C48E;
+	background: #43b29d;
 	margin: 0px;
 }
 
@@ -84,7 +71,7 @@ section {
 }
 
 #screen2 {
-	background: #82617B;
+	background: gray;
 }
 
 .sect {
@@ -94,22 +81,23 @@ section {
 }
 
 #screen3 {
-	background: #BCA1B1;
+	background: darkgrey;
 }
+
 #screen4 {
-	background: #E2DDD9;
+	background: gray;
 }
 
 #screen5 {
-	background: #F7E6D1;
+	background: lightgray;
 }
 
 .item-img{
 	width:48%;
 	min-height: 50%;
 }
-.item-box {
-	padding: 3rem;
+.item-box{
+	padding:3rem;
 }
 
 @media (max-width: 768px) {
@@ -129,38 +117,6 @@ section {
 }
 
 @media only screen and (max-width: 520px) {
-	.level .item-img{
-	display: none;
-	/*width:100%;
-	min-height: 30%;*/
-  }
-  .item-box{
-	padding:0;
-  }
-
-  .section {
-    padding: 0.8rem 1.5rem;
-}
-
-	nav li {
-		padding: 24px 4px;
-	}
-
-	nav li a {
-		font-size: 14px;
-	}
-
-}
-@media only screen and (max-width: 320px) {
-	.media{
-		font-size: medium;
-	}
-	.table{
-		font-size: small;
-	}
-	.media-left {
-    display: none;
-}
 	.level .item-img{
 	display: none;
 	/*width:100%;
