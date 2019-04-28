@@ -1,11 +1,11 @@
 # project-ActivityShop
-무형의 상품을 패키지로 판매할 때 사용되는 액티비티 워크샵 패키지 샵 프로젝트
+무형의 상품을 패키지로 판매할 때 최적화 된 액티비티 워크샵 패키지 샵 프로젝트
 
 ## front-end
 
-### usage video
+**DEMO VIDEO** 
 
-<iframe width="640" height="360" src="https://www.loom.com/share/1fa694ae98f34cf883b662d4f2885df0" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+https://www.loom.com/share/1fa694ae98f34cf883b662d4f2885df0
 
 # Build Setup
 
